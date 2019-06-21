@@ -8,7 +8,6 @@ build:
   - mkdir /usr/lib/guestfs
   - cd /usr/lib/guestfs
   - wget http://download.libguestfs.org/binaries/appliance/appliance-1.40.1.tar.xz
-  - unxz appliance-1.40.1.tar.xz
-  - tar xvf appliance-1.40.1.tar
+  - tar --extract --verbose --strip-components=1 --file appliance-1.40.1.tar.xz
   - cd ${CI_PROJECT_DIR}
   - bash build.bash

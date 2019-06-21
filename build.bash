@@ -1,3 +1,5 @@
+set -x
+
 dd if=/dev/zero of=pxeboot.img bs=1M count=4
 mkdosfs pxeboot.img
 losetup /dev/loop0 pxeboot.img

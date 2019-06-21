@@ -4,16 +4,20 @@ set -x
 qemu-img create -f raw pxeboot.img 4M
 
 mkdosfs pxeboot.img
-sudo losetup /dev/loop0 pxeboot.img
-mount /dev/loop0 /mnt
-syslinux --install /dev/loop0
+
+#sudo losetup /dev/loop0 pxeboot.img
+#mount /dev/loop0 /mnt
+
+guestmount -a pxeboot.img /mnt
+extlinux --install /mnt
 wget http://boot.ipxe.org/ipxe.iso
-sudo mount -o loop ipxe.iso /media
+questmount -a ipxe.iso /media
 cp /media/ipxe.krn /mnt
 cat > /mnt/syslinux.cfg <<EOF
 DEFAULT ipxe
 LABEL ipxe
   KERNEL ipxe.krn dhcp && chain http://ipxe.consul.local/loader.ipxe
 EOF
-sudo umount /media
-sudo umount /mnt
+ 
+guestunmount /media
+guestunmount /mnt

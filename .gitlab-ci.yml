@@ -2,5 +2,5 @@ image: alpine:edge
 
 build:
   script:
-  - apk add bash syslinux
+  - apk add bash syslinux sudo
   - bash build.bash

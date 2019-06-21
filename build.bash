@@ -6,7 +6,7 @@ guestfish --new pxeboot.img=fs:vfat:4M \
           --add file://${CI_PROJECT_DIR}/ipxe.iso \
           --mount /dev/sda1:/mnt \
           --mount /dev/sdb:/media \
-          list-devices | tail -1 \
+          "list-devices | tail -1" \
         : df -h
 
 exit 0

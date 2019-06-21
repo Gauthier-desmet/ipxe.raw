@@ -3,5 +3,6 @@ image: alpine:edge
 build:
   script:
   - apk update
-  - apk add bash syslinux sudo qemu-img libguestfs
+  - apk add bash syslinux sudo qemu-img
+  - apk add libguestfs --repository http://dl-3.alpinelinux.org/alpine/edge/testing
   - bash build.bash

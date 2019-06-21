@@ -1,6 +1,8 @@
 set -x
 
-dd if=/dev/zero of=pxeboot.img bs=1M count=4
+#dd if=/dev/zero of=pxeboot.img bs=1M count=4
+qemu-img create -f raw pxeboot.img 4M
+
 mkdosfs pxeboot.img
 sudo losetup /dev/loop0 pxeboot.img
 mount /dev/loop0 /mnt

@@ -8,7 +8,7 @@ mkdosfs pxeboot.img
 #sudo losetup /dev/loop0 pxeboot.img
 #mount /dev/loop0 /mnt
 
-guestmount -a pxeboot.img -i /mnt
+guestmount -i -a pxeboot.img /mnt
 extlinux --install /mnt
 wget http://boot.ipxe.org/ipxe.iso
 guestmount -a ipxe.iso /media

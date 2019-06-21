@@ -3,6 +3,7 @@ image: alpine:edge
 build:
   script:
   - apk update
-  - apk add bash syslinux sudo qemu-img
+  - apk add bash syslinux sudo qemu-img xz
   - apk add libguestfs --repository http://dl-3.alpinelinux.org/alpine/edge/testing
+  - wget http://download.libguestfs.org/binaries/appliance/appliance-1.40.1.tar.xz | xz −−decompress
   - bash build.bash

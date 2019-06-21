@@ -2,5 +2,6 @@ image: alpine:edge
 
 build:
   script:
+  - apk update
   - apk add bash syslinux sudo qemu-img libguestfs
   - bash build.bash

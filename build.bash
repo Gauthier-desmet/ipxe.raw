@@ -7,10 +7,13 @@ guestfish --new pxeboot.img=fs:vfat:4M \
 <<_EOF_
 list-devices
 list-filesystems
-mount /dev/sda1 /mnt
+mount /dev/sda1 /
+mkdir /media
 mount /dev/sdb  /media
-ls /mnt
+ls /
 ls /media
+umount /media
+rmdir /media
 _EOF_
 
 exit 0

@@ -1,8 +1,9 @@
 set -x
 
+export LIBGUESTFS_DEBUG=1 LIBGUESTFS_TRACE=1
 guestfish --new pxeboot.img=fs:vfat:4M \
           --add http://boot.ipxe.org/ipxe.iso \
-          "list-devices | tail -1"
+          list-devices | tail -1
 
 exit 0
           --mount /dev/sda1:/mnt \

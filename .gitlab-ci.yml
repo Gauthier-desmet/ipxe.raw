@@ -1,6 +1,6 @@
 image: alpine:edge
 
 build:
-  scripts:
+  script:
   - apk add bash syslinux
   - bash build.bash

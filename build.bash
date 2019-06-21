@@ -1,13 +1,11 @@
 set -x
 
-#dd if=/dev/zero of=pxeboot.img bs=1M count=4
-qemu-img create -f raw pxeboot.img 4M
+guestfish --new pxeboot.img=fs:vfat:4M \
+          --add http://boot.ipxe.org/ipxe.iso \
+          "list-devices | tail -1"
 
-mkdosfs pxeboot.img
-
-#sudo losetup /dev/loop0 pxeboot.img
-#mount /dev/loop0 /mnt
-
+exit 0
+          --mount /dev/sda1:/mnt \
 guestmount -i -a pxeboot.img /mnt
 extlinux --install /mnt
 wget http://boot.ipxe.org/ipxe.iso

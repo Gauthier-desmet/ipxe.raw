@@ -2,5 +2,5 @@ image: alpine:edge
 
 build:
   script:
-  - apk add bash syslinux sudo
+  - apk add bash syslinux sudo qemu-img
   - bash build.bash

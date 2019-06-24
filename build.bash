@@ -13,9 +13,9 @@ part-disk /dev/sda mbr
 part-set-mbr-id /dev/sda 1 0xb
 part-set-bootable /dev/sda 1 true
 pwrite-device /dev/sda /usr/share/syslinux/mbr.bin 0
-mkfs vfat /dev/sda1  
-mkdir /media
+mkfs vfat /dev/sda1
 mount /dev/sda1 /
+mkdir /media
 mount /dev/sdb  /media
 list-devices
 list-filesystems

@@ -5,9 +5,8 @@ wget http://boot.ipxe.org/ipxe.iso
 
 #export LIBGUESTFS_DEBUG=1 LIBGUESTFS_TRACE=1
 qemu-img create -f qcow2 ${disk_image} 10M
-virt-format --add ${disk_image} \
-            --partition=none \
-            --filesystem=vfat
+mkdosfs ${disk_image}
+
 guestfish --add file://${CI_PROJECT_DIR}/${disk_image} \
           --add file://${CI_PROJECT_DIR}/ipxe.iso \
 <<_EOF_

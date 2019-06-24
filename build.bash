@@ -1,10 +1,10 @@
 set -x
 
-disk_image="${1}"
+disk_image="${1}.qcow2"
 wget http://boot.ipxe.org/ipxe.iso
 
 #export LIBGUESTFS_DEBUG=1 LIBGUESTFS_TRACE=1
-qemu-img create ${disk_image} 10M
+qemu-img create -f qcow2 ${disk_image} 10M
 guestfish --add file://${CI_PROJECT_DIR}/${disk_image} \
           --add file://${CI_PROJECT_DIR}/ipxe.iso \
 <<_EOF_

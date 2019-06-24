@@ -12,6 +12,7 @@ mkdir /boot
 cp /media/ipxe.krn /boot
 copy-in syslinux.cfg /boot
 extlinux /boot
+pwrite-device /dev/sda /usr/share/syslinux/mbr.bin 0
 umount /media
 rmdir /media
 _EOF_

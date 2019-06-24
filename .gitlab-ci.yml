@@ -11,3 +11,4 @@ build:
   - tar --extract --verbose --strip-components=1 --file appliance-1.40.1.tar.xz
   - cd ${CI_PROJECT_DIR}
   - bash build.bash
+  

@@ -12,6 +12,7 @@ guestfish --add file://${CI_PROJECT_DIR}/${disk_image} \
 <<_EOF_
 run
 list-devices
+list-filesystems
 mount /dev/sda /
 mkdir /media
 mount /dev/sdb  /media

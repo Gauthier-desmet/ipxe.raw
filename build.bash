@@ -10,8 +10,8 @@ mkdosfs ${disk_image}
 guestfish --add file://${CI_PROJECT_DIR}/${disk_image} \
           --add file://${CI_PROJECT_DIR}/ipxe.iso \
 <<_EOF_
-list-devices
 run
+list-devices
 mount /dev/sda /
 mkdir /media
 mount /dev/sdb  /media

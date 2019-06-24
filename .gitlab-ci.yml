@@ -6,7 +6,7 @@ build:
   script:
   - apk update
   #- apk add bash dosfstools syslinux sudo qemu-img xz tar
-  - apk add bash git make gcc
+  - apk add bash git make gcc perl as
   #- apk add libguestfs --repository http://dl-3.alpinelinux.org/alpine/edge/testing
   #- mkdir /usr/lib/guestfs
   #- cd /usr/lib/guestfs

@@ -1,8 +1,8 @@
 image: alpine:edge
 
 build:
-  variable:
-  - disk_image: 'pxeboot.img'
+  variables:
+    disk_image: 'pxeboot.img'
   script:
   - apk update
   - apk add bash syslinux sudo qemu-img xz tar

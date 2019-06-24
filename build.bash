@@ -5,21 +5,20 @@ wget http://boot.ipxe.org/ipxe.iso
 
 #export LIBGUESTFS_DEBUG=1 LIBGUESTFS_TRACE=1
 qemu-img create -f qcow2 ${disk_image} 10M
+virt-format --add ${disk_image} \
+            --partition=none \
+            --filesystem=vfat
 guestfish --add file://${CI_PROJECT_DIR}/${disk_image} \
           --add file://${CI_PROJECT_DIR}/ipxe.iso \
 <<_EOF_
 run
-part-disk /dev/sda mbr
-mkfs vfat /dev/sda1
-mount /dev/sda1 /
+mount /dev/sda /
 mkdir /media
 mount /dev/sdb  /media
 mkdir /boot
 cp /media/ipxe.krn /
 copy-in syslinux.cfg /
 syslinux /dev/sda
-ls /boot
-part-set-bootable /dev/sda 1 true
 umount /media
 rmdir /media
 

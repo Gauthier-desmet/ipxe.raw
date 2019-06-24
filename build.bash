@@ -2,7 +2,7 @@ set -x
 
 git clone https://git.ipxe.org/ipxe.git
 cd ipxe/src
-make bin/ipxe.usb EMBED=embed.ipxe
+make bin/ipxe.usb EMBED=${CI_PROJECT_DIR}/embed.ipxe
 
 exit 0
 disk_image="${1}.qcow2"

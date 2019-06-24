@@ -1,7 +1,7 @@
 image: alpine:edge
 
 build:
-  variables:
+  variable:
   - disk_image: 'pxeboot.img'
   script:
   - apk update

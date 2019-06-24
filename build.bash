@@ -1,5 +1,10 @@
 set -x
 
+git clone https://git.ipxe.org/ipxe.git
+cd ipxe/src
+make bin/ipxe.usb EMBED=embed.ipxe
+
+exit 0
 disk_image="${1}.qcow2"
 wget http://boot.ipxe.org/ipxe.iso
 

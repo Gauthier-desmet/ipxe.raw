@@ -5,12 +5,13 @@ build:
     disk_image: 'pxeboot'
   script:
   - apk update
-  - apk add bash dosfstools syslinux sudo qemu-img xz tar
-  - apk add libguestfs --repository http://dl-3.alpinelinux.org/alpine/edge/testing
-  - mkdir /usr/lib/guestfs
-  - cd /usr/lib/guestfs
-  - wget http://download.libguestfs.org/binaries/appliance/appliance-1.40.1.tar.xz
-  - tar --extract --verbose --strip-components=1 --file appliance-1.40.1.tar.xz
+  #- apk add bash dosfstools syslinux sudo qemu-img xz tar
+  - apk add git
+  #- apk add libguestfs --repository http://dl-3.alpinelinux.org/alpine/edge/testing
+  #- mkdir /usr/lib/guestfs
+  #- cd /usr/lib/guestfs
+  #- wget http://download.libguestfs.org/binaries/appliance/appliance-1.40.1.tar.xz
+  #- tar --extract --verbose --strip-components=1 --file appliance-1.40.1.tar.xz
   - cd ${CI_PROJECT_DIR}
   - bash build.bash ${disk_image}
   artifacts:

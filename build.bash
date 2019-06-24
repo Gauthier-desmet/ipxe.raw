@@ -13,15 +13,16 @@ part-disk /dev/sda mbr
 part-set-mbr-id /dev/sda 1 0xb
 part-set-bootable /dev/sda 1 true
 pwrite-device /dev/sda /usr/share/syslinux/mbr.bin 0
-mkfs vfat /dev/sda1
+mkfs ext2 /dev/sda1
 mount /dev/sda1 /
 mkdir /media
 mount /dev/sdb  /media
 list-devices
 list-filesystems
-cp /media/ipxe.krn /
-copy-in syslinux.cfg /
-syslinux /dev/sda1
+mkdir-p /boot/extlinux
+cp /media/ipxe.krn /boot/
+copy-in extlinux.conf /boot/extlinux
+extlinux /boot/extlinux
 umount /media
 rmdir /media
 _EOF_

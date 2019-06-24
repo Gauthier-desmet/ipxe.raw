@@ -11,7 +11,7 @@ guestfish --add file://${CI_PROJECT_DIR}/${disk_image} \
 run
 part-disk /dev/sda mbr
 part-set-bootable /dev/sda 1 true
-mkfs ext4 /dev/sda1
+mkfs vfat /dev/sda1
 mount /dev/sda1 /
 mkdir /media
 mount /dev/sdb  /media

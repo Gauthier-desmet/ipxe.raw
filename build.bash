@@ -4,10 +4,11 @@ disk_image="${1}"
 wget http://boot.ipxe.org/ipxe.iso
 
 export LIBGUESTFS_DEBUG=1 LIBGUESTFS_TRACE=1
-guestfish --add file://${CI_PROJECT_DIR}/ipxe.iso \
+qemu-img create -f qcow2 ${disk_image} 4M
+guestfish --add file://${CI_PROJECT_DIR}/${disk_image} \
+          --add file://${CI_PROJECT_DIR}/ipxe.iso \
 <<_EOF_
 run
-sparse ${disk_image} 4M
 part-disk /dev/sda gpt
 part-set-bootable /dev/sda 1 true
 mkfs ext4 /dev/sda1
@@ -21,7 +22,6 @@ copy-in syslinux.cfg /boot
 extlinux /boot
 ls /boot
 pwrite-device /dev/sda /boot/mbr.bin 0
-
 umount /media
 rmdir /media
 _EOF_

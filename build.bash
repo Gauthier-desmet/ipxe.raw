@@ -14,7 +14,7 @@ part-set-mbr-id /dev/sda 1 0xb
 part-set-bootable /dev/sda 1 true
 pwrite-device /dev/sda /usr/share/syslinux/mbr.bin 0
 mkfs vfat /dev/sda1  
-mkmountpoint /media
+mkdir /media
 mount /dev/sda1 /
 mount /dev/sdb  /media
 list-devices
@@ -23,5 +23,5 @@ cp /media/ipxe.krn /
 copy-in syslinux.cfg /
 syslinux /dev/sda1
 umount /media
-rmmountpoint /media
+rmdir /media
 _EOF_

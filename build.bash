@@ -1,6 +1,6 @@
 set -x
 
-disk_image="${1}.raw"
+disk_image="${1}.qcow2"
 wget http://boot.ipxe.org/ipxe.iso
 
 export LIBGUESTFS_DEBUG=1 LIBGUESTFS_TRACE=1

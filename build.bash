@@ -14,7 +14,7 @@ mkdir /boot
 cp /media/ipxe.krn /boot
 copy-in syslinux.cfg /boot
 extlinux /boot
-pwrite-device /dev/sda /boot/mbr.bin size:440
+pwrite-device /dev/sda /boot/mbr.bin 0
 part-set-bootable /dev/sda 1 true
 umount /media
 rmdir /media

@@ -10,7 +10,6 @@ guestfish --add file://${CI_PROJECT_DIR}/${disk_image} \
 <<_EOF_
 run
 part-disk /dev/sda mbr
-part-set-mbr-id /dev/sda 1 0xb
 part-set-bootable /dev/sda 1 true
 pwrite-device /dev/sda /usr/share/syslinux/mbr.bin 0
 mkfs ext2 /dev/sda1

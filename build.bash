@@ -12,6 +12,13 @@ mkdir /media
 mount /dev/sdb  /media
 ls /
 ls /media
+cp /media/ipxe.krn /
+cat > /syslinux.cfg <<EOF
+DEFAULT ipxe
+LABEL ipxe
+  KERNEL ipxe.krn dhcp && chain http://ipxe.consul.local/loader.ipxe
+EOF
+extlinux --install /
 umount /media
 rmdir /media
 _EOF_

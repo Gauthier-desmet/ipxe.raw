@@ -16,4 +16,4 @@ build:
   - bash build.bash ${disk_image}
   artifacts:
     paths:
-    - bin/ipxe.*
+    - ipxe/src/bin/ipxe.*

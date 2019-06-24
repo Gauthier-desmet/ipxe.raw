@@ -10,18 +10,17 @@ guestfish --add file://${CI_PROJECT_DIR}/${disk_image} \
 <<_EOF_
 run
 part-disk /dev/sda mbr
-part-set-bootable /dev/sda 1 true
 mkfs vfat /dev/sda1
 mount /dev/sda1 /
 mkdir /media
 mount /dev/sdb  /media
 mkdir /boot
-cp /media/ipxe.krn /boot
-copy-in /usr/share/syslinux/mbr.bin /boot
-copy-in extlinux.conf /boot
-extlinux /boot
+cp /media/ipxe.krn /
+copy-in syslinux.cfg /
+syslinux /dev/sda
 ls /boot
-pwrite-device /dev/sda /boot/mbr.bin 0
+part-set-bootable /dev/sda 1 true
 umount /media
 rmdir /media
+
 _EOF_

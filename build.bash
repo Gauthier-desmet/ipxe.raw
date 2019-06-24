@@ -12,9 +12,9 @@ mkdir /media
 mount /dev/sdb  /media
 ls /
 ls /media
-cp /media/ipxe.krn /
-copy-in syslinux.cfg /
-extlinux --install /
+cp /media/ipxe.krn /boot
+copy-in syslinux.cfg /boot
+extlinux --install /boot
 umount /media
 rmdir /media
 _EOF_

@@ -4,7 +4,7 @@ disk_image="${1}"
 wget http://boot.ipxe.org/ipxe.iso
 
 export LIBGUESTFS_DEBUG=1 LIBGUESTFS_TRACE=1
-guestfish --new ${disk_image}=fs:vfat:4M \
+guestfish --new ${disk_image}=fs:ext4:4M \
           --add file://${CI_PROJECT_DIR}/ipxe.iso \
 <<_EOF_
 mount /dev/sda1 /

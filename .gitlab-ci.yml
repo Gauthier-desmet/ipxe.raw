@@ -15,4 +15,4 @@ build:
   - bash build.bash ${disk_image}
   artifacts:
     paths:
-    - ${disk_image}
+    - ${disk_image}.*

@@ -15,7 +15,7 @@ ls /media
 mkdir /boot
 cp /media/ipxe.krn /boot
 copy-in syslinux.cfg /boot
-extlinux --install /boot
+extlinux /boot
 umount /media
 rmdir /media
 _EOF_

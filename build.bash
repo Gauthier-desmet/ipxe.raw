@@ -16,7 +16,6 @@ list-filesystems
 mount /dev/sda /
 mkdir /media
 mount /dev/sdb  /media
-mkdir /boot
 cp /media/ipxe.krn /
 copy-in syslinux.cfg /
 syslinux /dev/sda

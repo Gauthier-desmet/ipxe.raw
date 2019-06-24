@@ -9,6 +9,7 @@ guestfish --new ${disk_image}=fs:vfat:4M \
 <<_EOF_
 part-set-mbr-id /dev/sda 1 0xb
 part-set-bootable /dev/sda 1 true
+pwrite-device /dev/sda /usr/share/syslinux/mbr.bin 0
 mount /dev/sda1 /
 mkdir /media
 mount /dev/sdb  /media
@@ -16,7 +17,6 @@ mkdir /boot
 cp /media/ipxe.krn /boot
 copy-in syslinux.cfg /boot
 extlinux /boot
-pwrite-device /dev/sda /usr/share/syslinux/mbr.bin 0
 umount /media
 rmdir /media
 _EOF_

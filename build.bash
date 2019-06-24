@@ -12,6 +12,7 @@ mkdir /media
 mount /dev/sdb  /media
 mkdir /boot
 cp /media/ipxe.krn /boot
+copy-in /usr/share/syslinux/mbr.bin /boot
 copy-in syslinux.cfg /boot
 extlinux /boot
 ls /boot

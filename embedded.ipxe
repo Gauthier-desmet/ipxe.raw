@@ -1,4 +1,5 @@
 #!ipxe
 
 echo -- embeded.ipxe --
+dhcp
 chain https://plmlab.math.cnrs.fr/resinfo/ANF/2019/ADA/ipxe/ipxe.raw/raw/master/loader.ipxe || shell

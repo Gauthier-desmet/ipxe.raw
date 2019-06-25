@@ -5,6 +5,6 @@ CA_CERT=cachain.txt
 git clone https://github.com/ipxe/ipxe
 cd ipxe/src
 make bin/ipxe.usb \
-     TRUST=${CA_CERT} \
+     TRUST=${CI_PROJECT_DIR}/${CA_CERT} \
      EMBED=${CI_PROJECT_DIR}/embedded.ipxe
 mv bin/ipxe.usb bin/ipxe.raw

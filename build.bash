@@ -14,6 +14,7 @@ printf '%s\n' '#define NEIGHBOUR_CMD /* Neighbour management commands */' >> con
 #printf '%s\n' '#define KEYBOARD_MAP fr' >> config/general.h
 
 make bin/ipxe.usb \
+     CERT=${CI_PROJECT_DIR}/${CA_CERT} \
      TRUST=${CI_PROJECT_DIR}/${CA_CERT} \
      EMBED=${CI_PROJECT_DIR}/embedded.ipxe \
      DEBUG=x509,httpcore,https,rootcert

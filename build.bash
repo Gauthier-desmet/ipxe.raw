@@ -10,6 +10,7 @@ printf '%s\n' '#define DOWNLOAD_PROTO_HTTPS /* Secure Hypertext Transfer Protoco
 printf '%s\n' '#define PING_CMD /* Ping command */' >> config/general.h
 printf '%s\n' '#define NSLOOKUP_CMD /* Name resolution command */' >> config/general.h
 printf '%s\n' '#define NEIGHBOUR_CMD /* Neighbour management commands */' >> config/general.h
+printf '%s\n' '#define KEYBOARD_MAP fr' >> config/general.h
 
 make bin/ipxe.usb \
      TRUST=${CI_PROJECT_DIR}/${CA_CERT} \

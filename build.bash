@@ -1,6 +1,9 @@
 set -x
 
-CA_CERT=cachain.txt
+CA_CERT=AddTrust_External_CA_Root.pem
+CA_CERT_URL=http://www.terena.org/activities/tcs/repository/${CA_CERT}
+wget ${CA_CERT_URL}
+
 #git clone https://git.ipxe.org/ipxe.git
 git clone https://github.com/ipxe/ipxe
 cd ipxe/src
@@ -17,7 +20,7 @@ make bin/ipxe.usb \
      CERT=${CI_PROJECT_DIR}/${CA_CERT} \
      TRUST=${CI_PROJECT_DIR}/${CA_CERT} \
      EMBED=${CI_PROJECT_DIR}/embedded.ipxe \
-     DEBUG=x509,httpcore,https,rootcert
+     DEBUG=tls,x509,httpcore,https,rootcert
 
 mv bin/ipxe.usb ${CI_PROJECT_DIR}/ipxe.raw
 

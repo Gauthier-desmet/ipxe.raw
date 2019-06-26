@@ -19,8 +19,8 @@ set loader_params manufacturer=${manufacturer}&product=${product}&uuid=${uuid}&s
 set loader_url    https://${loader_host}/${loader_path}?${loader_params}
 
 echo ping gateway
-ping --count 2 ${gateway}
+ping --count 2 ${gateway} ||
 echo ping ${loader_host}
-ping --count 2 ${loader_host}
+ping --count 2 ${loader_host} ||
 
 chain ${loader_url} || shell

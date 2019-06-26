@@ -2,6 +2,8 @@
 
 echo -- embeded.ipxe --
 
+ifopen net0
+
 dhcp
 
 show net0/mac

@@ -4,10 +4,12 @@ echo -- embeded.ipxe --
 
 dhcp
 
-show net0/ip
-show net0/netmask
-show net0/gateway
-show net0/dns
+show net0/mac
+show net0.dhcp/ip
+show net0.dhcp/netmask
+show net0.dhcp/gateway
+show net0.dhcp/dns
+show net0.dhcp/filename
 
 set loader https://plmlab.math.cnrs.fr/resinfo/ANF/2019/ADA/ipxe/ipxe.raw/raw/master/loader.ipxe
-chain ${loader}?uuid=${uuid} || shell
+chain ${loader}?uuid=${uuid}&mac=${net0/mac} || shell

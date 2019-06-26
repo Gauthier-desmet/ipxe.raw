@@ -1,6 +1,6 @@
 #!ipxe
 
-echo -- embeded.ipxe --
+echo -- embedded.ipxe --
 
 ifopen net0
 dhcp

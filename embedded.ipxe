@@ -3,9 +3,8 @@
 echo -- embeded.ipxe --
 
 ifopen net0
-
 dhcp
-
+ifstat
 show net0/mac
 show net0.dhcp/ip
 show net0.dhcp/netmask

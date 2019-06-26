@@ -16,4 +16,4 @@ build:
   - bash build.bash ${disk_image}
   artifacts:
     paths:
-    - ipxe/src/bin/ipxe.raw
+    - ${CI_PROJECT_DIR}/ipxe.raw

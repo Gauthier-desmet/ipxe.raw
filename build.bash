@@ -20,9 +20,9 @@ make bin/ipxe.usb \
 
 mv bin/ipxe.usb ${CI_PROJECT_DIR}/ipxe.raw
 
-make bin/ipxe.iso \
-     TRUST=${CI_PROJECT_DIR}/${CA_CERT} \
-     EMBED=${CI_PROJECT_DIR}/embedded.ipxe \
-     DEBUG=x509,httpcore,https,rootcert
+#make bin/ipxe.iso \
+#     TRUST=${CI_PROJECT_DIR}/${CA_CERT} \
+#     EMBED=${CI_PROJECT_DIR}/embedded.ipxe \
+#     DEBUG=x509,httpcore,https,rootcert
 
-mv bin/ipxe.iso ${CI_PROJECT_DIR}/ipxe.iso
+#mv bin/ipxe.iso ${CI_PROJECT_DIR}/ipxe.iso

@@ -9,7 +9,7 @@ show net0.dhcp/ip
 show net0.dhcp/netmask
 show net0.dhcp/gateway
 show net0.dhcp/dns
-isset net0.dhcp/filename && show net0.dhcp/filename
+show net0.dhcp/filename || echo net0.dhcp/filename not set
 
 set loader_host   plmlab.math.cnrs.fr
 set loader_path   resinfo/ANF/2019/ADA/ipxe/ipxe.raw/raw/master/loader.ipxe

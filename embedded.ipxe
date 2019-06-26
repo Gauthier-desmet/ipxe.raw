@@ -10,7 +10,7 @@ show ip
 show netmask
 show gateway
 show dns
-show mtu
+#show mtu
 #show filename || echo filename not set
 
 set loader_host   plmlab.math.cnrs.fr

@@ -2,7 +2,9 @@ set -x
 
 CA_CERT=AddTrust_External_CA_Root.pem
 CA_CERT_URL=http://www.terena.org/activities/tcs/repository/${CA_CERT}
-wget ${CA_CERT_URL}
+curl --location \
+     --output ${CA_CERT} \
+     ${CA_CERT_URL}
 
 #git clone https://git.ipxe.org/ipxe.git
 git clone https://github.com/ipxe/ipxe

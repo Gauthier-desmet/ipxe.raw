@@ -6,8 +6,8 @@ CA_CERT_URL1=http://www.terena.org/activities/tcs/repository/${CA_CERT1}.pem
 CA_CERT2=USERTrustRSAAddTrustCA
 CA_CERT_URL2=http://crt.usertrust.com/${CA_CERT2}.crt
 
-CA_CERT3=TERENASSLCA2
-CA_CERT_URL3=http://crt.usertrust.com/${CA_CERT3}.crt
+CA_CERT3=TERENASSLCA3
+CA_CERT_URL3=http://cacerts.digicert.com/${CA_CERT3}.crt
 
 curl --location --output ${CA_CERT1}.pem ${CA_CERT_URL1}
 curl --location --output ${CA_CERT2}.crt ${CA_CERT_URL2}
@@ -28,9 +28,11 @@ printf '%s\n' '#define NEIGHBOUR_CMD /* Neighbour management commands */' >> con
 #sed -i '/KEYBOARD_MAP/d' config/general.h
 #printf '%s\n' '#define KEYBOARD_MAP fr' >> config/general.h
 
+#     CERT=${CI_PROJECT_DIR}/${CA_CERT1}.pem,${CI_PROJECT_DIR}/${CA_CERT2}.pem,${CI_PROJECT_DIR}/${CA_CERT3}.pem \
+
 make bin/ipxe.usb \
-     CERT=${CI_PROJECT_DIR}/${CA_CERT1}.pem,${CI_PROJECT_DIR}/${CA_CERT2}.pem,${CI_PROJECT_DIR}/${CA_CERT3}.pem \
-     TRUST=${CI_PROJECT_DIR}/${CA_CERT1}.pem \
+     CERT=${CI_PROJECT_DIR}/${CA_CERT3}.pem \
+     TRUST=${CI_PROJECT_DIR}/${CA_CERT3}.pem \
      EMBED=${CI_PROJECT_DIR}/embedded.ipxe \
      DEBUG=tls,x509,httpcore,https,rootcert
 

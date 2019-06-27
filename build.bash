@@ -17,10 +17,6 @@ printf '%s\n' '#define DOWNLOAD_PROTO_HTTPS /* Secure Hypertext Transfer Protoco
 printf '%s\n' '#define PING_CMD /* Ping command */' >> config/general.h
 printf '%s\n' '#define NSLOOKUP_CMD /* Name resolution command */' >> config/general.h
 printf '%s\n' '#define NEIGHBOUR_CMD /* Neighbour management commands */' >> config/general.h
-#sed -i '/KEYBOARD_MAP/d' config/general.h
-#printf '%s\n' '#define KEYBOARD_MAP fr' >> config/general.h
-
-#     CERT=${CI_PROJECT_DIR}/${CA_CERT1}.pem,${CI_PROJECT_DIR}/${CA_CERT2}.pem,${CI_PROJECT_DIR}/${CA_CERT3}.pem \
 
 make bin/ipxe.usb \
      CERT=${CI_PROJECT_DIR}/${CA_CERT}.pem \

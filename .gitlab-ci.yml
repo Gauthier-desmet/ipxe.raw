@@ -3,8 +3,7 @@ image: alpine:edge
 build:
   tags:
   - plmshift
-  when:
-  - manual
+  when: manual
   variables:
     disk_image: 'pxeboot'
   script:

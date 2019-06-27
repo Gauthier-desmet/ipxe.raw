@@ -42,7 +42,7 @@ set rhcos_version      4.1.0
 set rhcos_mirror       https://mirror.openshift.com/pub/openshift-v4/dependencies/rhcos/4.1/${rhcos_version}
 set rhcos_kernel       ${rhcos_mirror}/rhcos-${rhcos_version}-x86_64-installer-kernel
 set rhcos_initrd       ${rhcos_mirror}/rhcos-${rhcos_version}-x86_64-installer-initramfs.img
-set rhcos_image_url    ${rhcos_mirror}/rhcos-${rhcos_version}-x86_64--metal-bios.raw.gz
+set rhcos_image_url    ${rhcos_mirror}/rhcos-${rhcos_version}-x86_64-metal-bios.raw.gz
 set rhcos_ignition_url ${netboot}/bootstrap.ign
 set rhcos_append       ip=dhcp \
                        rd.neednet=1 \

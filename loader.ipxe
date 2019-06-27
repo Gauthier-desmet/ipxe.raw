@@ -5,7 +5,7 @@ echo -- loader.ipxe --
 set netboot    https://plmlab.math.cnrs.fr/resinfo/ANF/2019/ADA/ipxe/ipxe.raw/raw/master
 set script_url ${netboot}/loader.ipxe
 
-menu Openstack PXE Loader 
+menu Openstack iPXE Loader 
 item refresh_menu  Refresh Menu
 item --gap +------------------------------------------------------------------+
 item --gap |................................ Boot ............................|

@@ -50,7 +50,7 @@ set rhcos_append       ip=dhcp \
                        console=tty0 \
                        console=ttyS0 \
                        coreos.inst=yes \
-                       coreos.inst.install_dev=sdb \ 
+                       coreos.inst.install_dev=sdb \
                        coreos.inst.image_url="${rhcos_image_url}" \
                        coreos.inst.ignition_url="${rhcos_ignition_url}"
 

@@ -18,13 +18,13 @@ item --gap
 choose --default hdd choice && goto ${choice}
 
 :pxe
-chain ${filename} || refresh_menu
+chain ${filename} || goto refresh_menu
 
 :hd1
-sanboot --no-describe --drive 0x80 || refresh_menu
+sanboot --no-describe --drive 0x80 || goto refresh_menu
 
 :hd2
-sanboot --no-describe --drive 0x81 || refresh_menu
+sanboot --no-describe --drive 0x81 || goto refresh_menu
 
 :shell:
 shell

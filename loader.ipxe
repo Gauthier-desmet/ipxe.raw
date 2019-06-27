@@ -9,21 +9,25 @@ item --gap +----------------------------------------------------+
 item --gap |............... Openstack PXE Loader ...............|
 item --gap +----------------------------------------------------+
 item --gap
-item --key 1 pxe [0] PXE
-item --key 0 hd1 [1] HDD 1 (iPXE boot disk)
-item --key 0 hd2 [2] HDD 2 (System boot disk)
+item --key 0 pxe [0] PXE
+item --key 1 hd1 [1] HDD 1 (Volume iPXE)
+item --key 2 hd2 [2] HDD 2 (Volume System)
+item --key 3 shell [3] SHELL (Shell iPXE)
 item --gap
 
 choose --default hdd choice && goto ${choice}
 
 :pxe
-shell
+chain ${filename} || refresh_menu
 
 :hd1
-sanboot --no-describe --drive 0x80
+sanboot --no-describe --drive 0x80 || refresh_menu
 
 :hd2
-sanboot --no-describe --drive 0x81
+sanboot --no-describe --drive 0x81 || refresh_menu
+
+:shell:
+shell
 
 :refresh_menu
 chain ${script_url}

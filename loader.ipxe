@@ -1,4 +1,29 @@
 #!ipxe
 
 echo -- loader.ipxe --
+
+set script_url https://plmlab.math.cnrs.fr/resinfo/ANF/2019/ADA/ipxe/ipxe.raw/raw/master/loader.ipxe
+menu iPXE 
+item refresh_menu  Refresh Menu
+item --gap +----------------------------------------------------+
+item --gap |............... Openstack PXE Loader ...............|
+item --gap +----------------------------------------------------+
+item --gap
+item --key 1 pxe [0] PXE
+item --key 0 hd1 [1] HDD 1 (iPXE boot disk)
+item --key 0 hd2 [2] HDD 2 (System boot disk)
+item --gap
+
+choose --default hdd choice && goto ${choice}
+
+:pxe
 shell
+
+:hd1
+sanboot --no-describe --drive 0x80
+
+:hd2
+sanboot --no-describe --drive 0x81
+
+:refresh_menu
+chain ${script_url}

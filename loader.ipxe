@@ -51,12 +51,12 @@ set rhcos_append       ip=dhcp \
                        console=ttyS0 \
                        coreos.inst=yes \
                        coreos.inst.install_dev=sdb \   
-                       coreos.inst.image_url=${rhcos_image} \
+                       coreos.inst.image_url=${rhcos_image_url} \
                        coreos.inst.ignition_url=${rhcos_ignition_url}
 
-imgfetch --name rhcos_initrd ${rhcos_initrd}
-imgfetch --name rhcos_kernel ${rhcos_kernel}
-imgexec rhcos_kernel ${rhcos_append}
+imgfetch --name rhcos_initrd ${rhcos_initrd} || goto refresh_menu
+imgfetch --name rhcos_kernel ${rhcos_kernel} || goto refresh_menu
+imgexec rhcos_kernel ${rhcos_append}         || goto refresh_menu
 
 :rancher
 goto refresh_menu

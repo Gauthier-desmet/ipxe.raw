@@ -38,6 +38,10 @@ sanboot --no-describe --drive 0x80 || goto refresh_menu
 sanboot --no-describe --drive 0x81 || goto refresh_menu
 
 :rhcos
+#
+# - https://docs.openshift.com/container-platform/4.1/installing/installing_bare_metal/installing-bare-metal.html#minimum-resource-requirements_installing-bare-metal
+# - https://mirror.openshift.com/pub/openshift-v4/dependencies/rhcos/4.1/4.1.0/
+#
 set rhcos_version      4.1.0
 set rhcos_path         openshift-v4/dependencies/rhcos/4.1/${rhcos_version}
 set rhcos_mirror       https://delavennat.perso.math.cnrs.fr/mirror/${rhcos_path}

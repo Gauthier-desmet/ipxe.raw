@@ -12,29 +12,29 @@ item --gap +--------------------------------------------------------------------
 item --gap |................................. Boot .............................|
 item --gap +--------------------------------------------------------------------+
 item --gap
-item --key 0 pxe [0] PXE
-item --key 1 hd1 [1] HDD 1 (Volume iPXE)
-item --key 2 hd2 [2] HDD 2 (Volume System)
+#item --key 0 pxe [0] PXE
+item --key 1 vda [1] VDA (Volume iPXE)
+item --key 2 vdb [2] VDB (Volume System)
 item --gap
 item --gap +--------------------------------------------------------------------+
 item --gap |................................ Install ...........................|
 item --gap +--------------------------------------------------------------------+
-item --key 3 rhcos [3] Red Hat CoreOS 4.1.0
-item --key 4 rancher [4] RancherOS 1.5.2
-item --key 5 alpine [5] AlpineLinux 3.9
+item --key 3 rhcos   [3] Red Hat Enterprise Linux CoreOS (RHCOS) - 4.1.0
+item --key 4 rancher [4] RancherOS - 1.5.2
+item --key 5 alpine  [5] AlpineLinux - 3.9
 item --gap
 item --key 6 shell [6] SHELL (Shell iPXE)
 item --gap
 
 choose --default hd2 choice && goto ${choice}
 
-:pxe
-chain ${filename} || goto refresh_menu
+#:pxe
+#chain ${filename} || goto refresh_menu
 
-:hd1
+:vda
 sanboot --no-describe --drive 0x80 || goto refresh_menu
 
-:hd2
+:vdb
 sanboot --no-describe --drive 0x81 || goto refresh_menu
 
 :rhcos

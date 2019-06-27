@@ -46,13 +46,17 @@ set rhcos_image_url    ${rhcos_mirror}/rhcos-${rhcos_version}-x86_64-metal-bios.
 set rhcos_ignition_url ${netboot}/bootstrap.ign
 set rhcos_append       ip=dhcp \
                        rd.neednet=1 \
-                       initrd=${rhcos_initrd} \
+                       initrd="${rhcos_initrd}" \
                        console=tty0 \
                        console=ttyS0 \
                        coreos.inst=yes \
                        coreos.inst.install_dev=sdb \ 
-                       coreos.inst.image_url=${rhcos_image_url} \
-                       coreos.inst.ignition_url=${rhcos_ignition_url}
+                       coreos.inst.image_url="${rhcos_image_url}" \
+                       coreos.inst.ignition_url="${rhcos_ignition_url}"
+
+show rhcos_initrd
+show rhcos_kernel
+show rhcos_append
 
 imgfetch --name rhcos_initrd ${rhcos_initrd} || goto refresh_menu
 imgfetch --name rhcos_kernel ${rhcos_kernel} || goto refresh_menu

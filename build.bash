@@ -1,7 +1,7 @@
 set -x
 
 CA_CERT=TERENASSLCA3
-CA_CERT_URL=http://cacerts.digicert.com/${CA_CERT3}.crt
+CA_CERT_URL=http://cacerts.digicert.com/${CA_CERT}.crt
 DEBUF=tls,x509,httpcore,https,rootcert
 
 curl --location --output ${CA_CERT}.crt ${CA_CERT_URL}

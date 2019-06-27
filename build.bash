@@ -6,7 +6,7 @@ CA_CERT=TERENASSLCA3
 
 #curl --location --output ${CA_CERT}.crt ${CA_CERT_URL}
 
-openssl x509 -inform DER -outform PEM -text -in ${CA_CERT}.crt -out ${CA_CERT}.pem
+#openssl x509 -inform DER -outform PEM -text -in ${CA_CERT}.crt -out ${CA_CERT}.pem
 
 #git clone https://git.ipxe.org/ipxe.git
 git clone https://github.com/ipxe/ipxe

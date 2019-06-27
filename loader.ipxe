@@ -59,9 +59,10 @@ show rhcos_initrd
 show rhcos_kernel
 show rhcos_append
 
-imgfetch --name rhcos_initrd ${rhcos_initrd} || goto refresh_menu
-imgfetch --name rhcos_kernel ${rhcos_kernel} || goto refresh_menu
-imgexec rhcos_kernel ${rhcos_append}         || goto refresh_menu
+imgfetch --name rhcos_initrd ${rhcos_initrd} || goto shell
+imgfetch --name rhcos_image  ${rhcos_image}  || goto shell
+imgfetch --name rhcos_kernel ${rhcos_kernel} || goto shell
+imgexec rhcos_kernel ${rhcos_append}         || goto shell
 
 :rancher
 goto refresh_menu

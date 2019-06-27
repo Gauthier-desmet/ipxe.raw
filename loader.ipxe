@@ -49,13 +49,14 @@ set rhcos_kernel       ${rhcos_mirror}/rhcos-${rhcos_version}-x86_64-installer-k
 set rhcos_initrd       ${rhcos_mirror}/rhcos-${rhcos_version}-x86_64-installer-initramfs.img
 set rhcos_image_url    ${rhcos_mirror}/rhcos-${rhcos_version}-x86_64-metal-bios.raw.gz
 set rhcos_ignition_url ${netboot}/bootstrap.ign
+set rhcos_install_dev  vdb
 set rhcos_append       ip=dhcp \
                        rd.neednet=1 \
                        initrd="${rhcos_initrd}" \
                        console=tty0 \
                        console=ttyS0 \
                        coreos.inst=yes \
-                       coreos.inst.install_dev=sdb \
+                       coreos.inst.install_dev=${rhcos_install_dev} \
                        coreos.inst.image_url=${rhcos_image_url} \
                        coreos.inst.ignition_url=${rhcos_ignition_url}
 

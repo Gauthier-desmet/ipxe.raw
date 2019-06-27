@@ -19,7 +19,7 @@ item --gap
 item --gap +--------------------------------------------------------------------+
 item --gap |................................ Install ...........................|
 item --gap +--------------------------------------------------------------------+
-item --key 3 rhcos [3] RHCOS 4.1.0
+item --key 3 rhcos [3] Red Hat CoreOS 4.1.0
 item --key 4 rancher [4] RancherOS 1.5.2
 item --key 5 alpine [5] AlpineLinux 3.9
 item --gap

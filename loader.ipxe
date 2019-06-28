@@ -88,7 +88,7 @@ set rancher_mirror  ${https_base}/mirror/${rancher_path}
 set rancher_kernel  ${rancher_mirror}/vmlinuz
 set rancher_initrd  ${rancher_mirror}/initrd
 set rancher_rootfs  ${rancher_mirror}/rootfs.tar.gz
-set rancher_config  ${https_base}/pxeboot/rancher/os/${mac}/cloud-config
+set rancher_config  ${https_base}/pxeboot/rancher/os/${mac:hex}/cloud-config
 set rancher_append  rancher.network.interfaces.eth*.dhcp=true \
                     rancher.cloud_init.datasources=[url:${rancher_config}] \
                     rancher.autologin=tty1 

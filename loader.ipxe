@@ -76,16 +76,18 @@ set rancher_mirror  ${https_base}/mirror/${rancher_path}
 set rancher_kernel  ${rancher_mirror}/vmlinuz
 set rancher_initrd  ${rancher_mirror}/initrd
 set rancher_rootfs  ${rancher_mirror}/rootfs.tar.gz
+set rancher_config  ${https_base}/pxeboot/rancher/os/cloud-config
 set rancher_append  printk.devkmsg=on \
                     rancher.debug=true \
                     rancher.state.dev=LABEL=RANCHER_STATE \
-                    rancher.state.autoformat=[/dev/vdb]
+                    rancher.state.autoformat=[/dev/vdb] \
                     console=tty0 \
                     rancher.state.mdadm_scan \
                     console=ttyS1,115200n8 \
                     rancher.autologin=ttyS1 \
                     rancher.network.interfaces.eth*.dhcp=true \
-                    rancher.cloud_init.datasources=[url:${https_base}/pxeboot/rancher/os/cloud-config]
+                    rancher.cloud_init.datasources=[url:${rancher_config}]
+                    
 imgfetch --name rancher_initrd ${rancher_initrd} || goto shell
 imgfetch --name rancher_kernel ${rancher_kernel} || goto shell
 imgexec rancher_kernel ${rancher_append}         || goto shell

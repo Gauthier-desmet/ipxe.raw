@@ -5,6 +5,8 @@ echo -- loader.ipxe --
 set netboot    https://plmlab.math.cnrs.fr/resinfo/ANF/2019/ADA/ipxe/ipxe.raw/raw/master
 set script_url ${netboot}/loader.ipxe
 set https_base https://delavennat.perso.math.cnrs.fr
+set host_info  uuid=${uuid}
+
 
 menu Openstack iPXE Loader 
 item refresh_menu  Refresh Menu
@@ -37,6 +39,11 @@ sanboot --no-describe --drive 0x80 || goto refresh_menu
 :vdb
 sanboot --no-describe --drive 0x81 || goto refresh_menu
 
+###########################################################################################
+#
+# Red Hat Enterprise Linux CoreOS
+#
+###########################################################################################
 :rhcos
 #
 # - https://github.com/openshift/installer/blob/master/docs/user/openstack/README.md
@@ -69,6 +76,11 @@ imgfetch --name rhcos_initrd ${rhcos_initrd} || goto shell
 imgfetch --name rhcos_kernel ${rhcos_kernel} || goto shell
 imgexec rhcos_kernel ${rhcos_append}         || goto shell
 
+###########################################################################################
+#
+# RancherOS
+#
+###########################################################################################
 :rancher
 set rancher_version 1.5.2
 set rancher_path    rancher/os/v${rancher_version}
@@ -76,16 +88,10 @@ set rancher_mirror  ${https_base}/mirror/${rancher_path}
 set rancher_kernel  ${rancher_mirror}/vmlinuz
 set rancher_initrd  ${rancher_mirror}/initrd
 set rancher_rootfs  ${rancher_mirror}/rootfs.tar.gz
-set rancher_config  ${https_base}/pxeboot/rancher/os/cloud-config
+set rancher_config  ${https_base}/pxeboot/rancher/os/cloud-config?${host_info}
 set rancher_append  printk.devkmsg=on \
-                    rancher.debug=true \
-                    rancher.state.dev=LABEL=RANCHER_STATE \
-                    rancher.state.autoformat=[/dev/vdb] \
                     console=tty0 \
-                    rancher.state.mdadm_scan \
                     console=ttyS1,115200n8 \
-                    rancher.autologin=tty1 \
-                    rancher.network.interfaces.eth*.dhcp=true \
                     rancher.cloud_init.datasources=[url:${rancher_config}]
                     
 imgfetch --name rancher_initrd ${rancher_initrd} || goto shell
@@ -94,6 +100,11 @@ imgexec rancher_kernel ${rancher_append}         || goto shell
 
 goto refresh_menu
 
+###########################################################################################
+#
+# Alpine Linux
+#
+###########################################################################################
 :alpine
 goto refresh_menu
 

@@ -93,7 +93,6 @@ set rancher_append  rancher.network.interfaces.eth*.dhcp=true \
                     rancher.cloud_init.datasources=[url:${rancher_config}] \
                     rancher.autologin=tty1 \
                     rancher.debug=true \
-                    console=tty0 \
                     console=ttyS1,115200n8 \
 #                    rancher.state.mdadm_scan \
 #                    rancher.state.wait \

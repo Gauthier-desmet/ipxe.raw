@@ -89,7 +89,8 @@ set rancher_kernel  ${rancher_mirror}/vmlinuz
 set rancher_initrd  ${rancher_mirror}/initrd
 set rancher_rootfs  ${rancher_mirror}/rootfs.tar.gz
 set rancher_config  ${https_base}/pxeboot/rancher/os/cloud-config?${host_info}
-set rancher_append  rancher.cloud_init.datasources=[url:${rancher_config}]
+set rancher_append  rancher.network.interfaces.eth*.dhcp=true \
+                    rancher.cloud_init.datasources=[url:${rancher_config}]
 
 show rancher_append
 prompt Press any key to continue

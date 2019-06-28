@@ -90,6 +90,7 @@ set rancher_initrd  ${rancher_mirror}/initrd
 set rancher_rootfs  ${rancher_mirror}/rootfs.tar.gz
 set rancher_config  ${https_base}/pxeboot/rancher/os/cloud-config?${host_info:base64}
 set rancher_append  rancher.network.interfaces.eth*.dhcp=true \
+                    rancher.state.mdadm_scan \
                     rancher.state.wait \
                     rancher.state.dev=LABEL=RANCHER_STATE \
                     rancher.state.autoformat=[/dev/vdb] \

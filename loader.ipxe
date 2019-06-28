@@ -94,7 +94,7 @@ set rancher_append  rancher.network.interfaces.eth*.dhcp=true \
                     rancher.autologin=tty1 \
                     rancher.debug=true \
                     console=tty0 \
-                    console=ttyS1,9600n8 \
+                    console=ttyS1,115200n8 \
 #                    rancher.state.mdadm_scan \
 #                    rancher.state.wait \
 #                    rancher.state.dev=LABEL=RANCHER_STATE \

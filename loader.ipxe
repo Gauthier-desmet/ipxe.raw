@@ -84,7 +84,7 @@ set rancher_append  printk.devkmsg=on \
                     console=tty0 \
                     rancher.state.mdadm_scan \
                     console=ttyS1,115200n8 \
-                    rancher.autologin=ttyS1 \
+                    rancher.autologin=tty1 \
                     rancher.network.interfaces.eth*.dhcp=true \
                     rancher.cloud_init.datasources=[url:${rancher_config}]
                     

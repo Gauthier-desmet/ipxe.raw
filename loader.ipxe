@@ -93,7 +93,10 @@ set rancher_append  printk.devkmsg=on \
                     console=tty0 \
                     console=ttyS1,115200n8 \
                     rancher.cloud_init.datasources=[url:${rancher_config}]
-                    
+
+show rancher_append
+prompt Press any key to continue
+
 imgfetch --name rancher_initrd ${rancher_initrd} || goto shell
 imgfetch --name rancher_kernel ${rancher_kernel} || goto shell
 imgexec rancher_kernel ${rancher_append}         || goto shell

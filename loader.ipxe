@@ -5,7 +5,7 @@ echo -- loader.ipxe --
 set netboot    https://plmlab.math.cnrs.fr/resinfo/ANF/2019/ADA/ipxe/ipxe.raw/raw/master
 set script_url ${netboot}/loader.ipxe
 set https_base https://delavennat.perso.math.cnrs.fr
-set host_info  uuid=${uuid}
+set host_info  manufacturer=${manufacturer}&uuid=${uuid}&mac=${mac}&serial=${serial}
 
 
 menu Openstack iPXE Loader 
@@ -89,10 +89,7 @@ set rancher_kernel  ${rancher_mirror}/vmlinuz
 set rancher_initrd  ${rancher_mirror}/initrd
 set rancher_rootfs  ${rancher_mirror}/rootfs.tar.gz
 set rancher_config  ${https_base}/pxeboot/rancher/os/cloud-config?${host_info}
-set rancher_append  printk.devkmsg=on \
-                    console=tty0 \
-                    console=ttyS1,115200n8 \
-                    rancher.cloud_init.datasources=[url:${rancher_config}]
+set rancher_append  rancher.cloud_init.datasources=[url:${rancher_config}]
 
 show rancher_append
 prompt Press any key to continue

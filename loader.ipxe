@@ -91,7 +91,9 @@ set rancher_rootfs  ${rancher_mirror}/rootfs.tar.gz
 set rancher_config  ${https_base}/pxeboot/rancher/os/${mac:hexhyp}/cloud-config
 set rancher_append  rancher.network.interfaces.eth*.dhcp=true \
                     rancher.cloud_init.datasources=[url:${rancher_config}] \
-                    rancher.autologin=tty1 
+                    rancher.autologin=tty1 \
+                    console=tty0 \
+                    console=ttyS1,115200n8 \
 #                    rancher.state.mdadm_scan \
 #                    rancher.state.wait \
 #                    rancher.state.dev=LABEL=RANCHER_STATE \

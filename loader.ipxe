@@ -2,10 +2,11 @@
 
 echo -- loader.ipxe --
 
-set netboot    https://plmlab.math.cnrs.fr/resinfo/ANF/2019/ADA/ipxe/ipxe.raw/raw/master
-set script_url ${netboot}/loader.ipxe
-set https_base https://delavennat.perso.math.cnrs.fr
-set host_info  manufacturer=${manufacturer}&product=${product}&uuid=${uuid}&mac=${mac}&serial=${serial}
+set netboot     https://plmlab.math.cnrs.fr/resinfo/ANF/2019/ADA/ipxe
+set config_base https://resinfo.pages.math.cnrs.fr/ANF/2019/ADA/ipxe
+set https_base  https://delavennat.perso.math.cnrs.fr
+set script_url  ${netboot}/ipxe.raw/raw/master/loader.ipxe
+set host_info   manufacturer=${manufacturer}&product=${product}&uuid=${uuid}&mac=${mac}&serial=${serial}
 
 
 menu Openstack iPXE Loader 
@@ -88,7 +89,8 @@ set rancher_mirror  ${https_base}/mirror/${rancher_path}
 set rancher_kernel  ${rancher_mirror}/vmlinuz
 set rancher_initrd  ${rancher_mirror}/initrd
 set rancher_rootfs  ${rancher_mirror}/rootfs.tar.gz
-set rancher_config  ${https_base}/pxeboot/rancher/os/${mac:hexhyp}/cloud-config
+set rancher_config  ${config_base}/${mac:hexhyp}/rancher/os/cloud-config
+
 set rancher_append  rancher.network.interfaces.eth*.dhcp=true \
                     rancher.cloud_init.datasources=[url:${rancher_config}] \
                     rancher.autologin=tty1 \

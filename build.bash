@@ -24,4 +24,5 @@ make bin/ipxe.usb \
      EMBED=${CI_PROJECT_DIR}/embedded.ipxe \
      DEBUG=${DEBUG}
 
-mv bin/ipxe.usb ${CI_PROJECT_DIR}/ipxe.raw
+mkdir -p ${CI_PROJECT_DIR}/public
+mv bin/ipxe.usb ${CI_PROJECT_DIR}/public/ipxe.raw

@@ -3,15 +3,12 @@ image: alpine:edge
 pages:
   tags:
   - plmshift
-  #when: manual
-  variables:
-    disk_image: 'pxeboot'
   script:
   - apk update
   - apk add bash git make gcc perl musl-dev xz-dev openssl-dev openssl sed coreutils curl
   - cd ${CI_PROJECT_DIR}
   - bash build.bash
-  - touch public/index.html
+  - touch ${CI_PROJECT_DIR}/public/index.html
   artifacts:
     paths:
     - ${CI_PROJECT_DIR}/public

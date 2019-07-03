@@ -10,10 +10,12 @@ set host_info   manufacturer=${manufacturer}&product=${product}&uuid=${uuid}&mac
 set host_loader ${config_base}/${mac:hexhyp}/loader.ipxe?base64=${host_info:base64}
 
 #
-# if no loader is defined on the host, use a menu
+# if no loader is defined on the host, use the menu
 #
-chain ${host_loader} ||
+echo Loading host iPXE loader
+chain ${host_loader} || goto menu
 
+:menu
 menu Openstack iPXE Loader 
 item refresh_menu  Refresh Menu
 item --gap

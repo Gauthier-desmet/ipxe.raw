@@ -26,3 +26,4 @@ make bin/ipxe.usb \
 
 mkdir -p ${CI_PROJECT_DIR}/public
 mv bin/ipxe.usb ${CI_PROJECT_DIR}/public/ipxe.raw
+mv loader.ipxe ${CI_PROJECT_DIR}/public/loader.ipxe

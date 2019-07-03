@@ -13,10 +13,11 @@ show dns
 #show mtu
 #show filename || echo filename not set
 
-set loader_host   plmlab.math.cnrs.fr
-set loader_path   resinfo/ANF/2019/ADA/ipxe/ipxe.raw/raw/master/loader.ipxe
+#set loader_host  plmlab.math.cnrs.fr
+set loader_host   https://resinfo.pages.math.cnrs.fr
+set loader_path   ANF/2019/ADA/ipxe/ipxe.raw/loader.ipxe
 set loader_params manufacturer=${manufacturer}&product=${product}&uuid=${uuid}&serial=${serial}&mac=${net0/mac}
-set loader_url    https://${loader_host}/${loader_path}?${loader_params}
+set loader_url    ${loader_host}/${loader_path}?${loader_params}
 
 #set loader_url    http://boot.ipxe.org/demo/boot.php
 #echo ping gateway

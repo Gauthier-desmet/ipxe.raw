@@ -37,7 +37,8 @@ item --gap
 # cf http://ipxe.org/cmd/choose
 # --timeout (miliseconds)
 #
-choose --default vdb --timeout 10000 choice && goto ${choice}
+#choose --default vdb --timeout 10000 choice && goto ${choice}
+choose --default vdb choice && goto ${choice}
 
 :vda
 sanboot --no-describe --drive 0x80 || goto refresh_menu

@@ -7,7 +7,9 @@ set config_base https://resinfo.pages.math.cnrs.fr/ANF/2019/ADA/ipxe
 set https_base  https://delavennat.perso.math.cnrs.fr
 set script_url  ${netboot}/ipxe.raw/raw/master/loader.ipxe
 set host_info   manufacturer=${manufacturer}&product=${product}&uuid=${uuid}&mac=${mac}&serial=${serial}
+set host_loader ${netboot}/${mac:hexhyp}/loader.ipxe?base64=${host_info:base64}
 
+chain ${host_loader} ||
 
 menu Openstack iPXE Loader 
 item refresh_menu  Refresh Menu

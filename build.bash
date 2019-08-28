@@ -8,7 +8,6 @@ CA_CERT=TERENASSLCA3
 
 #openssl x509 -inform DER -outform PEM -text -in ${CA_CERT}.crt -out ${CA_CERT}.pem
 
-#git clone https://git.ipxe.org/ipxe.git
 git clone https://github.com/ipxe/ipxe
 cd ipxe/src
 

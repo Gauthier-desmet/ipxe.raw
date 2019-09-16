@@ -3,7 +3,7 @@
 echo -- loader.ipxe --
 
 set netboot     https://plmlab.math.cnrs.fr/resinfo/ANF/2019/ADA/ipxe
-set config_base https://resinfo.pages.math.cnrs.fr/ANF/2019/ADA/ipxe
+set config_base https://resinfo.pages.math.cnrs.fr/ANF/2019/ADA/ipxe/instances
 set https_base  https://delavennat.perso.math.cnrs.fr
 set script_url  ${netboot}/ipxe.raw/raw/master/loader.ipxe
 set host_info   manufacturer=${manufacturer}&product=${product}&uuid=${uuid}&mac=${mac}&serial=${serial}

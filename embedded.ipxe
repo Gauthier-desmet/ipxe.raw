@@ -1,6 +1,6 @@
 #!ipxe
 
-echo -- embedded.ipxe --
+echo Loading embedded iPXE loader
 
 ifopen net0
 dhcp
@@ -10,19 +10,11 @@ show ip
 show netmask
 show gateway
 show dns
-#show mtu
-#show filename || echo filename not set
 
-#set loader_host  plmlab.math.cnrs.fr
 set loader_host   https://resinfo.pages.math.cnrs.fr
 set loader_path   ANF/2019/ADA/ipxe/ipxe.raw/loader.ipxe
 set loader_params manufacturer=${manufacturer}&product=${product}&uuid=${uuid}&serial=${serial}&mac=${net0/mac}
 set loader_url    ${loader_host}/${loader_path}?${loader_params}
 
-#set loader_url    http://boot.ipxe.org/demo/boot.php
-#echo ping gateway
-#ping --count 2 ${gateway} && echo "ping ${gateway} OK" || echo "ping ${gateway} KO"
-#echo ping ${loader_host}
-#ping --count 2 ${loader_host} && echo "ping ${loader_host} OK" || echo "ping ${loader_host} KO"
-
+echo Loading infrastructure iPXE loader
 chain ${loader_url} || shell

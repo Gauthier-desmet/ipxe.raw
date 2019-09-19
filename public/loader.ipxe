@@ -1,6 +1,6 @@
 #!ipxe
 
-echo -- loader.ipxe --
+echo -- infrastructure/loader.ipxe --
 
 set netboot     https://plmlab.math.cnrs.fr/resinfo/ANF/2019/ADA/ipxe
 set config_base https://resinfo.pages.math.cnrs.fr/ANF/2019/ADA/ipxe/instances

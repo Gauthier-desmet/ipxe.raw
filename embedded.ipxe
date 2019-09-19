@@ -1,6 +1,7 @@
 #!ipxe
 
 echo Loading embedded iPXE loader
+echo -- embedded.ipxe --
 
 ifopen net0
 dhcp
